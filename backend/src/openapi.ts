@@ -1,0 +1,7 @@
+export const openapi={openapi:"3.0.3",info:{title:"TalentBridge API",version:"1.0.0",description:"Production-readiness API for the internship catalog."},servers:[{url:"/"}],paths:{
+"/health":{get:{summary:"Health check",responses:{"200":{description:"Healthy"}}}},
+"/api/auth/login":{post:{summary:"Login",requestBody:{required:true,content:{"application/json":{schema:{type:"object",required:["email","password"],properties:{email:{type:"string",format:"email"},password:{type:"string",minLength:8}}}}}},responses:{"200":{description:"Authenticated"},"401":{description:"Invalid credentials"}}}},
+"/api/internships":{get:{summary:"Search and paginate internships",parameters:[{name:"search",in:"query",schema:{type:"string"}},{name:"location",in:"query",schema:{type:"string"}},{name:"category",in:"query",schema:{type:"string"}},{name:"sort",in:"query",schema:{type:"string",enum:["created_desc","created_asc","title_asc","title_desc"]}},{name:"page",in:"query",schema:{type:"integer",minimum:1}},{name:"limit",in:"query",schema:{type:"integer",minimum:1,maximum:50}}],responses:{"200":{description:"Paginated catalog"}}}},
+"/api/internships/options":{get:{summary:"Catalog filter options",responses:{"200":{description:"Locations and categories"}}}},
+"/api/me":{get:{summary:"Current authenticated user",security:[{bearerAuth:[]}],responses:{"200":{description:"Current user"},"401":{description:"Unauthorized"}}}}
+},components:{securitySchemes:{bearerAuth:{type:"http",scheme:"bearer",bearerFormat:"JWT"}}}};
