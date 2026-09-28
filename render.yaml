@@ -2,18 +2,27 @@ services:
   - type: web
     name: talentbridge-api
     runtime: node
+    plan: free
     rootDir: backend
     buildCommand: npm install && npm run build
     startCommand: npx prisma migrate deploy && npm start
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: talentbridge-db
+          property: connectionString
       - key: JWT_SECRET
-        sync: false
+        generateValue: true
       - key: CORS_ORIGIN
         sync: false
       - key: PORT
         value: 4000
       - key: NODE_ENV
         value: production
+
+databases:
+  - name: talentbridge-db
+    plan: free
+    databaseName: talentbridge
+    user: talentbridge
