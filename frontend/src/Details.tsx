@@ -1,0 +1,2 @@
+type Row={id:string;title:string;location:string;category:string;createdAt:string;company:{name:string}};
+export default function Details({row,onClose}:{row:Row;onClose:()=>void}){return <div className="modal" role="dialog" aria-modal="true" aria-label="Internship details"><div className="modal-card"><button onClick={onClose}>Close</button><small>{row.category}</small><h2>{row.title}</h2><p><b>{row.company.name}</b> · {row.location}</p><p>Published {new Date(row.createdAt).toLocaleDateString()}</p><p>Internship record: {row.id}</p></div></div>}
