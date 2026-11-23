@@ -1,5 +1,10 @@
 # TalentBridge — Performance Optimization, Dockerization & Deployment
 
+## Integrated capstone
+
+This task is part of the broader [TalentBridge internship and placement platform](https://github.com/syedghulamahmed/Capstone), which consolidates the platform architecture and end-to-end workflow.
+
+
 NeuroFive Solutions Week 5 — Full Stack Web Development.
 
 This repository is a separate production-readiness pass over the TalentBridge internship catalog. It focuses on measurable performance work, PostgreSQL query planning, Docker/Compose, production configuration, health checks, structured logs, OpenAPI, and deployment documentation.
